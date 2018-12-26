@@ -251,6 +251,8 @@ classify_argument (ffi_type *type, enum x86_64_reg_class classes[],
 	    for (i = 0; i < num; i++)
 	      {
 		size_t pos = byte_offset / 8;
+		    
+		FFI_ASSERT( i + pos < MAX_CLASSES )
 		classes[i + pos] =
 		  merge_classes (subclasses[i], classes[i + pos]);
 	      }
